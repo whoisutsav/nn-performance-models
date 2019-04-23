@@ -1,4 +1,5 @@
-# NOTE: this example is from https://www.tensorflow.org/tutorials/estimators/cnn
+# NOTE: this example is from https://www.tensorflow.org/tutorials/estimators/cnn,
+# (with slight modifications)
 
 from __future__ import absolute_import, division, print_function
 
@@ -16,6 +17,7 @@ def cnn_model_fn(features, labels, mode):
   conv1 = tf.layers.conv2d(
       inputs=input_layer,
       filters=32,
+      strides=5,
       kernel_size=[5, 5],
       padding="same",
       activation=tf.nn.relu)
@@ -27,6 +29,7 @@ def cnn_model_fn(features, labels, mode):
   conv2 = tf.layers.conv2d(
       inputs=pool1,
       filters=64,
+      strides=5,
       kernel_size=[5, 5],
       padding="same",
       activation=tf.nn.relu)
